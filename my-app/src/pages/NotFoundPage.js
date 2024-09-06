@@ -1,12 +1,16 @@
-// src/pages/NotFoundPage.js
 import React from 'react';
 
 function NotFoundPage() {
   return (
-    <div>
-      <h1>404 - Not Found</h1>
-    </div>
-  );
+    <div className='main'>
+            <section className="error-text">
+            <p className="subtitle">404</p>
+            <p className="subtitle">Page Not Found</p>
+            <p className="text">Sorry, the page you are looking for does not exist.</p>
+            </section>
+    </div> 
+    
+);
 }
 
 export default NotFoundPage;
