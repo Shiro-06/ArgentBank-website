@@ -4,7 +4,9 @@ import NavBar from './components/NavBar';
 import LoginPage from './pages/LoginPage';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage'; 
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import './css/main.css'; 
+// import Dashboard from './pages/dashboard/dashboard';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage/>} />
         </Routes>
         <Footer />
       </div>
