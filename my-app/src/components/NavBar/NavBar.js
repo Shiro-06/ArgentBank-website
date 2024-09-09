@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../img/argentBankLogo.webp';
+import logo from '../../img/argentBankLogo.webp';
+import './NavBar.scss';
 
 function NavBar() {
   return (
