@@ -1,0 +1,102 @@
+@import "../../css/main.scss";
+
+.form-edit {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: white;
+
+  form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    input {
+      margin: 5px 0;
+      width: 150px;
+      height: 5px;
+      padding: 10px 0;
+      text-align: center;
+    }
+  }
+}
+
+.header {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.buttons-edit {
+  margin: 20px 0;
+}
+
+.edit-button {
+  border-color: $color-button;
+  background-color: $color-button;
+  color: white;
+  font-weight: bold;
+  padding: 7px;
+  margin: 0 10px;
+}
+
+.edit-button-option {
+  border-radius: 5px;
+  border-color: $color-button;
+  text-align: center;
+  width: 100px;
+  background-color: $color-button;
+  color: #fff;
+  height: 30px;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.edit-input-group {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.edit-inputs-buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-inputs {
+  display: flex;
+  flex-direction: column;
+  column-gap: 0.5rem;
+}
+
+.edit-input {
+  border-radius: 5px;
+  border-color: #e7e7e7;
+  width: 130px;
+  background-color: #e7e7e7;
+  height: 30px;
+  padding-left: 0.5rem;
+  font-size: 14px;
+}
+
+input#username {
+  background-color: #fff;
+}
+
+.edit-buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+
+.edit-button-option {
+  border-radius: 5px;
+  border-color: $color-button;
+  text-align: center;
+  width: 115px;
+  background-color: $color-button;
+  color: #fff;
+  height: 30px;
+  border: 1px solid;
+  cursor: pointer;
+}

@@ -1,4 +1,5 @@
 @import "../../css/main.scss";
+
 .features {
     display: flex;
     flex-direction: column;
@@ -9,7 +10,7 @@
   
     .feature-icon {
       width: 100px;
-      border: 10px solid $color-border;
+      border: 10px solid $color-button;
       border-radius: 50%;
       padding: 1rem;
     }

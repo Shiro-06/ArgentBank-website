@@ -1,26 +1,34 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import LoginPage from './pages/LoginPage/LoginPage.js';
-import Footer from './components/Footer/Footer.js';
-import HomePage from './pages/HomePage'; 
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-// import Dashboard from './pages/dashboard/dashboard';
+import * as React from "react";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Home from "./pages/Home";
+import Login from "./pages/Login/Login";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import User from "./pages/User/User";
+import Error from "./pages/Error/Error";
 
-function App() {
+const App = () => {
+  const isAuth = useSelector((state) => state.login.isAuth);
+  const PrivateRoute = ({ element }) => {
+    return isAuth ? element : <Navigate to="/login" state={{ from: "/" }} />;
+  };
+
   return (
-    <Router>
-      <div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="*" element={<NotFoundPage/>} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/profile"
+          element={<PrivateRoute element={<User />} path="/profile" />}
+        />
+        <Route path="*" element={<Error />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

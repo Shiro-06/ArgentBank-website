@@ -1,0 +1,26 @@
+@import "../../css/main.scss";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-sizing: border-box;
+  }
+  
+  .bg-dark {
+    background-color: $color-bg-dark;
+    min-height: 100vh;
+  }
+  
+  .header {
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  
+  .edit-button {
+    border-color: $color-button;
+    background-color: $color-button;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+  }

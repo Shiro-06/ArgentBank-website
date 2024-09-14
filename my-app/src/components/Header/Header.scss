@@ -1,5 +1,11 @@
 @import "../../css/main.scss";
 
+.header {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -8,19 +14,30 @@
 
   a {
     font-weight: bold;
-    color: $color-primary;
+    color: $color-secondary;
 
     &.router-link-exact-active {
       color: $color-secondary;
     }
   }
-
+  .main-nav-items {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 20px;
+    text-decoration: $color-button;
+  }
   .main-nav-item {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     margin-right: 0.5rem;
+    gap: 15px;
+  
 
     &:hover {
       text-decoration: underline;
+      text-decoration: $color-button;
     }
   }
 
