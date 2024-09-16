@@ -43,44 +43,6 @@ body {
 	min-height: 100vh;
 }
 
-.main {
-	flex: 1;
-
-	&-nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 5px 20px;
-
-		a {
-			color: #2c3e50;
-			font-weight: bold;
-
-			&.router-link-exact-active {
-				color: $color-secondary;
-			}
-		}
-
-		&-item {
-			text-decoration: none;
-			margin-right: 0.5rem;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-
-		&-logo {
-			display: flex;
-			align-items: center;
-
-			&-image {
-				max-width: 100%;
-				width: 200px;
-			}
-		}
-	}
-}
 .fa{
 	margin: 5px;
 }
@@ -177,14 +139,6 @@ body {
 	}
 }
 
-.edit-button {
-	border-color: $color-button;
-	background-color: $color-button;
-	color: #fff;
-	font-weight: bold;
-	padding: 10px;
-}
-
 .editing.header {
 	color:#404040 ;/* Titre en noir lorsque le mode édition est activé */
   }
@@ -207,5 +161,20 @@ body {
 .chevron-icon {
 	color: #fff;
 	font-size: 45px;
+	transition: color 0.3s ease, transform 0.3s ease;
+	cursor: pointer;
+	&:hover {
+		color: darken(white, 10%);
+		transform: scale(1.15);
+	}
 }
 
+button {
+	transition: background-color 0.3s ease, transform 0.3s ease;
+  
+	&:hover {
+	  background-color: darken($color-button, 10%); 
+	  transform: scale(1.05); 
+	}
+  }
+  

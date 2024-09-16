@@ -14,7 +14,7 @@
 
   a {
     font-weight: bold;
-    color: $color-secondary;
+    color: $color-button;
 
     &.router-link-exact-active {
       color: $color-secondary;
@@ -33,11 +33,9 @@
     text-decoration: none;
     margin-right: 0.5rem;
     gap: 15px;
-  
-
+    
     &:hover {
       text-decoration: underline;
-      text-decoration: $color-button;
     }
   }
 
