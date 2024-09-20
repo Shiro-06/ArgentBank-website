@@ -1,15 +1,22 @@
-import './Account.scss'; // Importation du fichier de styles SCSS pour le composant
+import './Account.scss'; 
 import { PropTypes } from 'prop-types'; // Importation de PropTypes pour la validation des types de props
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Importation du composant FontAwesomeIcon pour les icônes
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // Importation de l'icône ChevronRight
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; 
+import { useNavigate } from 'react-router-dom';
+
 
 // Définition du composant fonctionnel Account
 function Account(props) {
+    const navigate = useNavigate();
     // Déstructuration des props pour une utilisation plus simple
     const ACCOUNT_TITLE = props.accountTitle;
     const ACCOUNT_AMOUNT = props.accountAmount;
     const ACCOUNT_AMOUNT_DESCRIPTION = props.accountAmountDescription;
     const ACCOUNT_AMOUNT_FORMAT = amountFormat(ACCOUNT_AMOUNT); // Formatage du montant du compte
+
+    const handleViewTransactions = () => {
+        navigate('/transactions');
+      };
 
     return (
         // Section principale du composant avec une classe conditionnelle basée sur la prop editing
@@ -25,7 +32,7 @@ function Account(props) {
                 <FontAwesomeIcon icon={faChevronRight} className="chevron-icon" /> // Icône ChevronRight si editing est true
             ) : (
                 <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button> {/* Bouton pour voir les transactions si editing est false */}
+                    <button className="transaction-button" onClick={handleViewTransactions}>View transactions</button> {/* Bouton pour voir les transactions si editing est false */}
                 </div>
             )}
         </section>
@@ -45,4 +52,4 @@ Account.propTypes = {
     editing: PropTypes.bool.isRequired // Indicateur d'édition (booléen, requis)
 }
 
-export default Account; // Exportation du composant Account par défaut
+export default Account; 

@@ -9,6 +9,7 @@ import CircleUserIcon from "../../assets/icons/CircleUserIcon";
 import './Header.scss';
 import EditIcon from '../../assets/icons/EditIcon';
 
+
 const Header = () => {
     //const user = useSelector(state => state.user); // Assurez-vous que vous extrayez correctement les données de l'utilisateur
     const isAuth = useSelector((state) => state.login.isAuth);
@@ -57,9 +58,9 @@ const Header = () => {
                         <SignOutIcon />
                     </div>
                 </div>
-            ) : (
+            ) : 
                 ""
-            )}
+            }
         </nav>
     );
 };
