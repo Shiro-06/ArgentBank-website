@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import User from "./pages/User/User";
 import Error from "./pages/Error/Error";
-import Transaction from "./pages/transactions";
+import Transaction from "./pages/transactions/transactions";
 
 const App = () => {
   const isAuth = useSelector((state) => state.login.isAuth);
