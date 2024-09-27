@@ -12,16 +12,17 @@ import {
   userUpdateSuccess,
   userUpdateFail,
 } from "../actions/userAction";
-//partie Api
+
+// URL de base pour l'API
 const BASE_URL = "http://localhost:3001/api/v1";
+
 /**
- * Login function
- * @param { String } email
- * @param { String } password
- * @param { Boolean } rememberMe
- * @returns { Object }
+ * Fonction de login
+ * @param {String} email - L'email de l'utilisateur
+ * @param {String} password - Le mot de passe de l'utilisateur
+ * @param {Boolean} rememberMe - Indique si l'utilisateur souhaite être "remembered"
+ * @returns {Object}
  */
-// Inside your login function
 export const login = (email, password, rememberMe) => (dispatch) => {
   axios
     .post(BASE_URL + "/user/login", { email, password })
@@ -32,18 +33,18 @@ export const login = (email, password, rememberMe) => (dispatch) => {
       } else {
         sessionStorage.setItem("token", JSON.stringify(token)); // Stocker dans la sessionStorage sinon
       }
-      dispatch(loginSuccess(response.data));
+      dispatch(loginSuccess(response.data)); // Dispatch l'action de succès de login
       console.log(response);
       return response.data;
     })
     .catch((err) => {
-      dispatch(loginFail(err.response.data.message));
+      dispatch(loginFail(err.response.data.message)); // Dispatch l'action d'échec de login
     });
 };
 
 /**
- * Get user profile
- * @param {String} token
+ * Fonction pour obtenir le profil de l'utilisateur
+ * @param {String} value_token - Le token de l'utilisateur
  */
 export const userProfile = (value_token) => (dispatch) => {
   const token =
@@ -59,21 +60,19 @@ export const userProfile = (value_token) => (dispatch) => {
       { headers: { Authorization: `Bearer ${token}` } }
     )
     .then((response) => {
-      dispatch(userSuccess(response.data));
-      dispatch(isToken());
+      dispatch(userSuccess(response.data)); // Dispatch l'action de succès de récupération du profil
+      dispatch(isToken()); // Dispatch l'action indiquant que le token est valide
     })
     .catch((err) => {
-      dispatch(userFail(err.response));
+      dispatch(userFail(err.response)); // Dispatch l'action d'échec de récupération du profil
     });
 };
 
 /**
- * Update user profile
- * @param {String} firstName
- * @param {String} lastName
- * @param {String} token
+ * Fonction pour mettre à jour le profil de l'utilisateur
+ * @param {String} userName - Le nouveau nom d'utilisateur
+ * @param {String} value_token - Le token de l'utilisateur
  */
-
 export const updateProfile = (userName, value_token) => (dispatch) => {
   const token =
     localStorage.getItem("token") !== null
@@ -90,23 +89,24 @@ export const updateProfile = (userName, value_token) => (dispatch) => {
       }
     )
     .then((res) => {
-      dispatch(userUpdateSuccess(res.data));
+      dispatch(userUpdateSuccess(res.data)); // Dispatch l'action de succès de mise à jour du profil
       console.log("dattataat reponse", res.data);
     })
     .catch((err) => {
-      dispatch(userUpdateFail(err.response));
+      dispatch(userUpdateFail(err.response)); // Dispatch l'action d'échec de mise à jour du profil
     });
 };
 
 /**
- * Logout function
+ * Fonction de logout
  */
 export const logout = () => (dispatch) => {
-  sessionStorage.clear();
-  localStorage.removeItem("token");
-  dispatch(userLogout());
-  dispatch(logoutSuccess());
+  sessionStorage.clear(); // Vider la sessionStorage
+  localStorage.removeItem("token"); // Supprimer le token du localStorage
+  dispatch(userLogout()); // Dispatch l'action de logout de l'utilisateur
+  dispatch(logoutSuccess()); // Dispatch l'action de succès de logout
 };
 
+// Exportation des services d'authentification
 const auth_service = { login, userProfile, logout };
 export default auth_service;

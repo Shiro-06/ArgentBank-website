@@ -49,3 +49,16 @@
     }
   }
 }
+.main-nav-logo-image,
+.sign-out-icon,
+.circle-user-icon,
+.edit-icon {
+  transition: transform 0.3s ease; // Ajoute une transition pour un effet fluide
+}
+
+.main-nav-logo-image:hover,
+.sign-out-icon:hover,
+.circle-user-icon:hover,
+.edit-icon:hover {
+  transform: scale(1.1); // Grossit légèrement l'icône au survol
+}
